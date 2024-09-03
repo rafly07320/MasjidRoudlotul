@@ -42,7 +42,7 @@
                         </svg>
                     </button>
                     <a href="" class="flex ms-2 md:me-24">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                        <img src="{{asset('images/logo.jpg')}}" class="h-8 me-3" alt="Masjid RU" />
                         <span
                             class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">ROUDLOTUL KHOLEK</span>
                     </a>
