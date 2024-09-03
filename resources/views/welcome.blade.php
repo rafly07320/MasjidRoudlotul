@@ -98,6 +98,33 @@
             </div>
         </div>
     </div>
+    <div class="my-8">
+        <h2 class="p-4 font-poppins underline text-6xl font-black text-center text-gray-900 dark:text-white">Sejarah Masjid
+        </h2>
+    </div>
+    <div class="bg-brush mt-10 shadow-inner-lg md:w-3/4 mx-auto rounded-xl">
+        <div class="flex flex-col md:flex-row  mx-auto md:max-w-screen-xl h-auto">
+            <div class="md:w-1/2 w-full  flex justify-center items-center my-20">
+                <div class="bg-masjid bg-cover bg-center border-4 border-amber-800 h-96 w-60 rounded-xl shadow-outer-lg">
+                </div>
+            </div>
+            <div class="md:w-1/2 w-full h-96 my-20 py-5">
+                <h2 class="text-2xl font-black text-gray-900 mb-5">
+                    MASJID ROUDLOTUL ULUM
+                </h2>
+                <p class="font-poppins text-justify me-10">
+                    Pada awalnya, sebelum berdirinya Masjid Roudlotul Ulum, terdapat sebuah mushola kecil di wilayah Kampung
+                    Dupak Baru. Kemudian, dilakukan pembangunan yang menghasilkan sebuah masjid kecil bernama Masjid Al
+                    Ibrahim. Lalu pada tahun 2000, masjid ini mengalami pembangunan kembali, sehingga menjadi masjid besar
+                    yang kemudian berganti nama menjadi Masjid Roudlotul Ulum. Pada tahun 1996, didirikan sebuah sekolah
+                    bernama SDI Roudlotul Ulum, diikuti oleh pendirian TK Tunas Harapan pada tahun 2001. Seiring dengan
+                    perkembangan tersebut, sesuai dengan peraturan yang berlaku, dibentuklah Yayasan Masjid Roudlotul Ulum
+                    pada tahun 2013 untuk mengelola SD dan TK tersebut.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div class=" dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
             <div class="mb-10  flex align-items-center justify-center  w-full">

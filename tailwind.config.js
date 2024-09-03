@@ -25,10 +25,20 @@ export default {
                 'kotak': "url('/public/images/batthern.png')",
                 'brush': "url('/public/images/brushed-alum-dark.png')",
                 'striped-brick': "url('/public/images/diagonal-striped-brick.png')",
+                'masjid': "url('/public/images/masjid.jpg')",
+                'black-linen': "url('/public/images/black-linen.png')",
+
             },
             height: {
                 'custom-1': '450px',
                 'custom-2': '600px',
+            },
+            boxShadow: {
+                'inner-lg': 'inset 0 0 15px 0px rgba(0, 0, 0, 0.6)', // Custom inner shadow
+                'outer-lg': '10px 10px 0 rgba(0, 0, 0, 0.5)',
+            },
+            fontFamily: {
+                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
         },
     },
