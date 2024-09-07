@@ -1,5 +1,4 @@
 @extends('layouts.home')
-//tes
 
 @section('title', $title)
 
