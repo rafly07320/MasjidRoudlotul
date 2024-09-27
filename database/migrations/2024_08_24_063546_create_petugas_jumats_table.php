@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('petugas_jumats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->references('id')->on('users');
-            $table->string('nama_petugas');
             $table->date('tgl_petugas');
             $table->string('nama_imam');
             $table->string('nama_khotib');

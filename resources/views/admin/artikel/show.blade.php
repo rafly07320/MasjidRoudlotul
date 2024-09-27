@@ -22,7 +22,7 @@
                         alt="">
                 </div>
                 <p class="my-8 text-md p-7">
-                    {{ $artikel->deskripsi_artikel }}
+                    {!! $artikel->deskripsi_artikel !!}
                 </p>
             </div>
             <div class="lg:w-1/4 w-full my-8 p-2">
@@ -79,11 +79,11 @@
                     </div>
                 </div>
                 @foreach ($otherArtikels as $other)
-                    <a href="{{ route('artikel.show', $other->id) }}"
+                    <a href="{{ route('artikel.show', ['judul_artikel' => str_replace(' ', '-', $other->judul_artikel)]) }}"
                         class="block mb-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $other->judul_artikel }}</h5>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">{{ Str::limit($other->deskripsi_artikel, 100) }}.</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{!! Str::limit($other->deskripsi_artikel, 100) !!}.</p>
                     </a>
                 @endforeach
             </div>

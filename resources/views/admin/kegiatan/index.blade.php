@@ -12,30 +12,30 @@
     <hr />
     <div class="mt-3 max-w-full p-7 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div class="overflow-x-auto">
-            <table id="example" class="min-w-full border-collapse" style="width:100%">
+            <table id="example" class="min-w-full border-collapse border border-gray-300" style="width:100%">
                 <thead class="bg-slate-300">
                     <tr>
-                        <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Deskripsi</th>
-                        <th>Foto</th>
-                        <th>Aksi</th>
+                        <th class="border border-gray-400">Judul</th>
+                        <th class="border border-gray-400">Penulis</th>
+                        <th class="border border-gray-400">Tanggal</th>
+                        <th class="border border-gray-400">Waktu</th>
+                        <th class="border border-gray-400">Deskripsi</th>
+                        <th class="border border-gray-400">Foto</th>
+                        <th class="border border-gray-400">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($kegiatans as $kegiatan)
                         <tr>
-                            <td>{{ $kegiatan->judul_kegiatan }}</td>
-                            <td>{{ $kegiatan->user->name }}</td>
-                            <td>{{ $kegiatan->tanggal_kegiatan }}</td>
-                            <td>{{ $kegiatan->waktu_kegiatan }}</td>
-                            <td class="whitespace-normal break-words">{{ $kegiatan->deskripsi_kegiatan }}</td>
-                            <td><img src="{{ Storage::url('foto_kegiatans/' . $kegiatan->foto_kegiatan) }}"
+                            <td class="border p-4 border-gray-400">{{ $kegiatan->judul_kegiatan }}</td>
+                            <td class="border p-4 border-gray-400">{{ $kegiatan->user->name }}</td>
+                            <td class="border p-4 border-gray-400">{{ $kegiatan->tanggal_kegiatan }}</td>
+                            <td class="border p-4 border-gray-400">{{ $kegiatan->waktu_kegiatan }}</td>
+                            <td class="border p-4 border-gray-400 whitespace-normal break-words">{!! $kegiatan->deskripsi_kegiatan !!}</td>
+                            <td class="border p-4 border-gray-400"><img src="{{ Storage::url('foto_kegiatans/' . $kegiatan->foto_kegiatan) }}"
                                     alt="Foto Artikel">
                             </td>
-                            <td>
+                            <td class="border p-4 border-gray-400">
                                 <div class="flex justify-center">
                                     <button data-modal-target="edit-modal-{{ $kegiatan->id }}"
                                         data-modal-toggle="edit-modal-{{ $kegiatan->id }}"
@@ -61,7 +61,7 @@
     {{-- Modal Tambah --}}
     <div id="add-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <div class="relative p-4 w-full max-w-4xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
@@ -106,7 +106,7 @@
                             <label for="deskripsi_kegiatan"
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-400">Deskripsi
                                 Kegiatan</label>
-                            <textarea id="deskripsi_kegiatan" name="deskripsi_kegiatan" rows="4"
+                            <textarea id="myeditorinstance" name="deskripsi_kegiatan" rows="4"
                                 class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
                         </div>
                         <div class="mb-4">
@@ -186,7 +186,7 @@
                                 <label for="deskripsi_kegiatan"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-400">Deskripsi
                                     Kegiatan</label>
-                                <textarea id="deskripsi_kegiatan" name="deskripsi_kegiatan" rows="4"
+                                <textarea id="myeditorinstance" name="deskripsi_kegiatan" rows="4"
                                     class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">{{ $kegiatan->deskripsi_kegiatan }}</textarea>
                             </div>
                             <div class="mb-4">

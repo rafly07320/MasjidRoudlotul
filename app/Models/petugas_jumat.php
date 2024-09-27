@@ -13,7 +13,6 @@ class petugas_jumat extends Model
 
     protected $fillable = [
         'id_user',
-        'nama_petugas',
         'tgl_petugas',
         'nama_imam',
         'nama_khotib',

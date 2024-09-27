@@ -12,7 +12,6 @@
             <p class="mb-8 text-lg font-normal text-gray-300">
                 {{ \Carbon\Carbon::parse($kegiatan->tanggal_kegiatan)->format('d M Y') }} - 
                 {{ \Carbon\Carbon::parse($kegiatan->waktu_kegiatan)->format('H:i') }} WIB
-
             </p>
         </div>
     </div>
@@ -24,7 +23,7 @@
                         alt="">
                 </div>
                 <p class="my-8 text-md p-7">
-                    {{ $kegiatan->deskripsi_kegiatan }}
+                    {!! $kegiatan->deskripsi_kegiatan !!}
                 </p>
             </div>
             <div class="lg:w-1/4 w-full my-8 p-2">

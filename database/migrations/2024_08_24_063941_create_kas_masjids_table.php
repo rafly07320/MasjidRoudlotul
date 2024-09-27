@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->references('id')->on('users');
             $table->date('tanggal_kas');
-            $table->string('jenis_kas');
-            $table->integer('jumlah_kas');
-            $table->integer('saldo_akhir');
+            $table->enum('jenis_kas',['masuk','keluar']);
+            $table->bigInteger('jumlah_kas');
+            $table->bigInteger('saldo_akhir');
             $table->text('deskripsi_kas');
             $table->timestamps();
         });
