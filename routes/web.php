@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\KasMasjidController;
 use App\Http\Controllers\Admin\KegiatanController;
 use App\Http\Controllers\Admin\PetugasJumatController;
+use App\Http\Controllers\Admin\ShodaqohController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
     //kas_masjid
     Route::get('/admin-kas-masjid', [KasMasjidController::class, 'index'])->name('kas.index');
     Route::post('/admin-kas-masjid', [KasMasjidController::class, 'store'])->name('kas.store');
+    //shodaqoh
+    Route::get('/admin-shodaqoh', [ShodaqohController::class, 'index'])->name('shodaqoh.index');
+    Route::post('/admin-shodaqoh', [ShodaqohController::class, 'store'])->name('shodaqoh.store');
 });
 //artikel
 Route::get('/artikel/{judul_artikel}', [ArtikelController::class, 'show'])->name('artikel.show');
