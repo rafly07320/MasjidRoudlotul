@@ -16,15 +16,19 @@ class ShodaqohController extends Controller
 
     public function store(Request $request)
     {
-        // Validate request inputs
-        $request->validate([
-            'nama_shodaqoh' => 'required|string|max:255',
-            'tanggal_shodaqoh' => 'required|date',
-            'nominal_shodaqoh' => 'required|numeric',
-            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // validate image
-        ]);
-
         try {
+            $request->merge([
+                'nominal_shodaqoh' => preg_replace('/[^0-9]/', '', $request->nominal_shodaqoh),
+            ]);
+            // Validate request inputs
+            $request->validate([
+                'nama_shodaqoh' => 'required|string|max:255',
+                'tanggal_shodaqoh' => 'required|date',
+                'nominal_shodaqoh' => 'required|numeric|min:1|max:9999999999',
+                'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // validate image
+            ]);
+
+
             $data = $request->all();
 
             // Handle file upload
@@ -38,10 +42,12 @@ class ShodaqohController extends Controller
             Shodaqoh::create($data);
 
             // Redirect on success
-            return redirect()->route('shodaqoh.index')->with('success', 'Shodaqoh successfully added!');
+            return redirect()->back()->with('success', 'Shodaqoh successfully added!');
         } catch (\Exception $e) {
             // Catch any exceptions and redirect with error message
             return redirect()->route('shodaqoh.index')->with('error', 'Failed to add Shodaqoh. Error: ' . $e->getMessage());
         }
     }
+
+    public function show() {}
 }

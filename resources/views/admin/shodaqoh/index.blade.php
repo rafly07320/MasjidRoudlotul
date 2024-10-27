@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="flex justify-between items-center mb-3">
-        <h2 class="mb-0 text-uppercase text-4xl">Petugas Jumat</h2>
+        <h2 class="mb-0 text-uppercase text-4xl">Shodaqoh</h2>
         <button data-modal-target="add-modal" data-modal-toggle="add-modal"
             class="me-2 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button">
@@ -98,7 +98,7 @@
                         <div class="mb-4">
                             <label for="nominal_shodaqoh"
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nominal</label>
-                            <input id="harga" type="text" name="nominal_shodaqoh" rows="4"
+                            <input id="nominal_shodaqoh" type="text" name="nominal_shodaqoh" rows="4"
                                 class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></input>
                         </div>
                         <div class="mb-4">
@@ -121,9 +121,9 @@
         </div>
     </div>
     <script>
-        var harga = document.getElementById('harga');
-        harga.addEventListener('keyup', function(e) {
-            harga.value = formatRupiah(this.value, 'Rp. ');
+        var nominal_shodaqoh = document.getElementById('nominal_shodaqoh');
+        nominal_shodaqoh.addEventListener('keyup', function(e) {
+            nominal_shodaqoh.value = formatRupiah(this.value, 'Rp. ');
         });
 
         function formatRupiah(angka, prefix) {

@@ -113,7 +113,7 @@
                         <div class="mb-4">
                             <label for="jumlah_kas"
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-400">Jumlah Kas</label>
-                            <input type="number" id="jumlah_kas" name="jumlah_kas" min="1"
+                            <input type="text" id="jumlah_kas" name="jumlah_kas" min="1"
                                 class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                 required>
                         </div>
@@ -143,5 +143,26 @@
         </div>
     </div>
 
+    <script>
+        var nominal_shodaqoh = document.getElementById('jumlah_kas');
+        nominal_shodaqoh.addEventListener('keyup', function(e) {
+            nominal_shodaqoh.value = formatRupiah(this.value, 'Rp. ');
+        });
 
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+    </script>
 @endsection

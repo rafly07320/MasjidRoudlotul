@@ -61,6 +61,13 @@
                     <a href="#"
                         class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Kontak</a>
                 </li>
+                <li>
+                    <a href="{{ route('home.shodaqoh') }}"
+                        class="block py-2 px-3 text-gray-900 rounded md:bg-transparent md:hover:bg-transparent md:hover:text-blue-700 hover:bg-gray-100 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent
+                        {{ request()->routeIs('home.shodaqoh') ? 'bg-blue-700 text-white md:text-blue-700 dark:bg-blue-600' : '' }}"
+                        aria-current="page">Shodaqoh</a>
+                </li>
+                </li>
             </ul>
         </div>
     </div>

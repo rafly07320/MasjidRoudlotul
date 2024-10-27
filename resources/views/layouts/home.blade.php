@@ -21,6 +21,43 @@
         @yield('content')
         <x-footer />
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            @if (Session::has('success'))
+                Toastify({
+                    text: "{{ Session::get('success') }}",
+                    duration: 2000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "green",
+                    },
+                    onClick: function() {} // Callback after click
+                }).showToast();
+            @endif
+
+            @if (Session::has('error'))
+                Toastify({
+                    text: "{{ Session::get('error') }}",
+                    duration: 2000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // top or bottom
+                    position: "right", // left, center or right
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "red",
+                    },
+                    onClick: function() {} // Callback after click
+                }).showToast();
+            @endif
+        });
+    </script>
 </body>
 
 </html>

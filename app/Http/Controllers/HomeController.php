@@ -28,6 +28,11 @@ class HomeController extends Controller
         return view('kegiatan', compact('kegiatans'));
     }
 
+    public function getShodaqoh(){
+        session()->all();
+        return view('shodaqoh');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
