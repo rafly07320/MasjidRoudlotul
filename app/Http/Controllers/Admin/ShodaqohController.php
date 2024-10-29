@@ -45,7 +45,7 @@ class ShodaqohController extends Controller
             return redirect()->back()->with('success', 'Shodaqoh successfully added!');
         } catch (\Exception $e) {
             // Catch any exceptions and redirect with error message
-            return redirect()->route('shodaqoh.index')->with('error', 'Failed to add Shodaqoh. Error: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Failed to add Shodaqoh. Error: ' . $e->getMessage());
         }
     }
 
