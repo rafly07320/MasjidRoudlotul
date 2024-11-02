@@ -10,11 +10,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use function Pest\Laravel\post;
+
 Route::middleware('web')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/artikel', [HomeController::class, 'getArtikel'])->name('home.artikel');
     Route::get('/kegiatan', [HomeController::class, 'getKegiatan'])->name('home.kegiatan');
     Route::get('/shodaqoh', [HomeController::class, 'getShodaqoh'])->name('home.shodaqoh');
+    Route::post('/shodaqoh', [HomeController::class, 'storeShodaqoh'])->name('home.shodaqoh.store');
 });
 
 
@@ -48,13 +51,13 @@ Route::middleware('auth')->group(function () {
     //shodaqoh
     Route::get('/admin-shodaqoh', [ShodaqohController::class, 'index'])->name('shodaqoh.index');
     Route::post('/admin-shodaqoh', [ShodaqohController::class, 'store'])->name('shodaqoh.store');
-
     //zakat
     Route::get('/admin-zakat', [ZakatController::class, 'index'])->name('zakat.index');
     Route::post('/admin-zakat', [ZakatController::class, 'store'])->name('zakat.store');
     Route::put('/admin-zakat/{id}', [ZakatController::class, 'update'])->name('zakat.update');
     Route::delete('/admin-zakat/{id}', [ZakatController::class, 'destroy'])->name('zakat.destroy');
 });
+
 //artikel
 Route::get('/artikel/{judul_artikel}', [ArtikelController::class, 'show'])->name('artikel.show');
 //kegiatan

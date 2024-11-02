@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use App\Models\kegiatan;
+use App\Models\shodaqoh;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,41 @@ class HomeController extends Controller
     public function getShodaqoh(){
         session()->all();
         return view('shodaqoh');
+    }
+
+    public function storeShodaqoh(Request $request)
+    {
+        try {
+            $request->merge([
+                'nominal_shodaqoh' => preg_replace('/[^0-9]/', '', $request->nominal_shodaqoh),
+            ]);
+            // Validate request inputs
+            $request->validate([
+                'nama_shodaqoh' => 'required|string|max:255',
+                'tanggal_shodaqoh' => 'required|date',
+                'nominal_shodaqoh' => 'required|numeric|min:1|max:9999999999',
+                'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // validate image
+            ]);
+
+
+            $data = $request->all();
+
+            // Handle file upload
+            if ($request->hasFile('bukti_transfer')) {
+                $file = $request->file('bukti_transfer');
+                $path = $file->store('shodaqoh_bukti_transfer', 'public'); // store in 'storage/app/public/shodaqoh_bukti_transfer'
+                $data['bukti_transfer'] = $path;
+            }
+
+            // Create new shodaqoh entry
+            shodaqoh::create($data);
+
+            // Redirect on success
+            return redirect()->route('home.shodaqoh')->with('success', 'Shodaqoh successfully added!');
+        } catch (\Exception $e) {
+            // Catch any exceptions and redirect with error message
+            return redirect()->route('home.shodaqoh')->with('error', 'Failed to add Shodaqoh. Error: ' . $e->getMessage());
+        }
     }
 
     /**

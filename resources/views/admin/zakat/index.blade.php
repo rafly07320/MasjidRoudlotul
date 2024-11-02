@@ -33,7 +33,7 @@
                             <td class="border p-4 border-gray-400">{{ $zakat->kepala_keluarga }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->alamat }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->jumlah_jiwa }}</td>
-                            <td class="border p-4 border-gray-400">{{ $zakat->total_zakat }}</td>
+                            <td class="border p-4 border-gray-400">{{ $zakat->total_zakat }} Kg</td>
                             <td class="border p-4 border-gray-400">
                                 <div class="flex justify-center">
                                     <button data-modal-target="edit-modal-{{ $zakat->id }}"

@@ -12,13 +12,22 @@
                     Bermanfa'at.</p>
             </div>
         </div>
+        <div class="pt-8 px-4 flex justify-center items-center w-full mx-auto max-w-screen-md">
+            <div
+                class="max-w-sm p-6 bg-white border-4 border-red-600 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <img class="mb-3" src="{{ asset('images/LogoBankJatim.png') }}" alt="">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">No. Rek. 123456789</p>
+                <p class="mb-3 font-normal text-white text-center rounded-xl p-1 bg-red-600 dark:text-gray-400">An. Masjid Roudlotul Ulum</p>
+            </div>
+        </div>
         <div class="py-8 px-4 flex justify-center items-center w-full mx-auto max-w-screen-md">
             <div
                 class="min-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <h5 class="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Infaq dan Shodaqoh</h5>
+                    <h5 class="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Infaq dan
+                        Shodaqoh</h5>
                 </a>
-                <form action="{{ route('shodaqoh.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home.shodaqoh.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="p-4 md:p-5 space-y-4">
                         <div class="mb-4">
