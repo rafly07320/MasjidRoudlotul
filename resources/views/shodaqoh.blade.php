@@ -7,9 +7,7 @@
         <div class="bg-striped-brick bg-gray-100 ">
             <div class="max-w-screen-xl mx-auto py-16 text-gray-900">
                 <h1 class="text-3xl md:text-4xl font-bold text-center">Infaq dan Shodaqoh</h1>
-                <p class="text-center md:text-xl md:max-w-screen-sm md:mx-auto mx-2">Selain Berita, menampilkan juga
-                    Informasi, Wawasan, Sejarah dan Opini, Semoga
-                    Bermanfa'at.</p>
+                <p class="text-center md:text-xl md:max-w-screen-sm md:mx-auto mx-2">Setiap sedekah yang diberikan dengan ikhlas akan mendatangkan pahala yang berlipat ganda.</p>
             </div>
         </div>
         <div class="pt-8 px-4 flex justify-center items-center w-full mx-auto max-w-screen-md">
