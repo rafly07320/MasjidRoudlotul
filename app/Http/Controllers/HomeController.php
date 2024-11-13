@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ShodaqohFeedback;
 use App\Models\Artikel;
 use App\Models\kegiatan;
 use App\Models\shodaqoh;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -43,6 +45,7 @@ class HomeController extends Controller
             // Validate request inputs
             $request->validate([
                 'nama_shodaqoh' => 'required|string|max:255',
+                'email_shodaqoh' => 'required|email',
                 'tanggal_shodaqoh' => 'required|date',
                 'nominal_shodaqoh' => 'required|numeric|min:1|max:9999999999',
                 'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // validate image
@@ -59,9 +62,11 @@ class HomeController extends Controller
             }
 
             // Create new shodaqoh entry
-            shodaqoh::create($data);
+            $shodaqoh = shodaqoh::create($data);
 
-            // Redirect on success
+            Mail::to($request->email_shodaqoh)->send(new ShodaqohFeedback($shodaqoh));
+
+            
             return redirect()->route('home.shodaqoh')->with('success', 'Shodaqoh successfully added!');
         } catch (\Exception $e) {
             // Catch any exceptions and redirect with error message

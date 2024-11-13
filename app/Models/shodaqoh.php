@@ -13,6 +13,7 @@ class shodaqoh extends Model
 
     protected $fillable = [
         'nama_shodaqoh',
+        'email_shodaqoh',
         'tanggal_shodaqoh',
         'nominal_shodaqoh',
         'bukti_transfer',
