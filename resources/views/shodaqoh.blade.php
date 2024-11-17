@@ -14,8 +14,8 @@
             <div
                 class="max-w-sm p-6 bg-white border-4 border-red-600 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <img class="mb-3" src="{{ asset('images/LogoBankJatim.png') }}" alt="">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">No. Rek. 123456789</p>
-                <p class="mb-3 font-normal text-white text-center rounded-xl p-1 bg-red-600 dark:text-gray-400">An. Masjid Roudlotul Ulum</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">No. Rek. 0372164310</p>
+                <p class="mb-3 font-normal text-white text-center rounded-xl p-1 bg-red-600 dark:text-gray-400">A/n. Yayasan Masjid Roudlotul Ulum</p>
             </div>
         </div>
         <div class="py-8 px-4 flex justify-center items-center w-full mx-auto max-w-screen-md">

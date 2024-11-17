@@ -106,7 +106,7 @@
                             <label for="deskripsi_kegiatan"
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-400">Deskripsi
                                 Kegiatan</label>
-                            <textarea id="" name="deskripsi_kegiatan" rows="4"
+                            <textarea id="myeditorinstance" name="deskripsi_kegiatan" rows="4"
                                 class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
                         </div>
                         <div class="mb-4">

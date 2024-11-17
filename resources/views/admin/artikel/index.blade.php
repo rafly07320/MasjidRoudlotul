@@ -102,7 +102,7 @@
                         <div class="mb-4">
                             <label for="deskripsi_artikel"
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-400">Deskripsi Artikel</label>
-                            <textarea id="" name="deskripsi_artikel"
+                            <textarea id="myeditorinstance" name="deskripsi_artikel"
                                 class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
                         </div>
                         <div class="mb-4">
