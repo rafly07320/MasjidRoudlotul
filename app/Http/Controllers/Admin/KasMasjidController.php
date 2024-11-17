@@ -35,22 +35,22 @@ class KasMasjidController extends Controller
 
     public function store(Request $request)
     {
-        // Pastikan user sudah login
-        $userId = Auth::id();
-        if (!$userId) {
-            return redirect()->back()->with('error', 'Anda harus login untuk menambahkan data.');
-        }
-
-        // Validasi input
-        $request->validate([
-            'tanggal_kas' => 'required|date',
-            'jenis_kas' => 'required|in:masuk,keluar', // Validasi enum
-            'jumlah_kas' => 'required|numeric|min:1|max:9999999999',
-            'deskripsi_kas' => 'nullable|string|max:65535', // Maksimal panjang untuk text
-        ]);
-
         try {
-            // Ambil semua data request dan tambahkan id_user
+            // Pastikan user sudah login
+            $userId = Auth::id();
+            if (!$userId) {
+                return redirect()->back()->with('error', 'Anda harus login untuk menambahkan data.');
+            }
+
+            // Validasi input
+            $request->validate([
+                'tanggal_kas' => 'required|date',
+                'jenis_kas' => 'required|in:masuk,keluar', // Validasi enum
+                'jumlah_kas' => 'required|numeric|min:1|max:9999999999',
+                'deskripsi_kas' => 'nullable|string|max:65535', // Maksimal panjang untuk text
+            ]);
+
+            // Ambil data request dan tambahkan id_user
             $data = $request->only(['tanggal_kas', 'jenis_kas', 'jumlah_kas', 'deskripsi_kas']);
             $data['id_user'] = $userId;
 
@@ -59,22 +59,21 @@ class KasMasjidController extends Controller
             $currentSaldo = $lastKasMasjid ? $lastKasMasjid->saldo_akhir : 0;
 
             // Hitung saldo akhir baru
-            if ($request->jenis_kas === 'masuk') {
-                $data['saldo_akhir'] = $currentSaldo + $request->jumlah_kas;
-            } else {
-                $data['saldo_akhir'] = $currentSaldo - $request->jumlah_kas;
-            }
+            $data['saldo_akhir'] = $request->jenis_kas === 'masuk'
+                ? $currentSaldo + $request->jumlah_kas
+                : $currentSaldo - $request->jumlah_kas;
 
             // Simpan data ke database
-            kas_masjid::create($data); // Perbaiki pemanggilan model
+            kas_masjid::create($data);
 
             // Redirect jika berhasil
-            return redirect()->route('kas.index')->with('success', 'Kas masjid berhasil ditambahkan.');
+            return redirect()->route('kas.index')->with('success', 'Data kas berhasil ditambahkan.');
         } catch (\Exception $e) {
-            // Jika ada error, tampilkan pesan error
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat menambahkan data: ' . $e->getMessage());
+            // Tangkap error
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
 
 
 

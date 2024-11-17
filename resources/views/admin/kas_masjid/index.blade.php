@@ -112,10 +112,9 @@
                         </div>
                         <div class="mb-4">
                             <label for="jumlah_kas"
-                                class="block text-sm font-medium text-gray-700 dark:text-gray-400">Jumlah Kas</label>
-                            <input type="text" id="jumlah_kas" name="jumlah_kas" min="1"
-                                class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                required>
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nominal</label>
+                            <input id="" type="number" name="jumlah_kas" rows="4"
+                                class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></input>
                         </div>
                         {{-- <div class="mb-4">
                             <label for="saldo_akhir"
@@ -144,9 +143,9 @@
     </div>
 
     <script>
-        var nominal_shodaqoh = document.getElementById('jumlah_kas');
-        nominal_shodaqoh.addEventListener('keyup', function(e) {
-            nominal_shodaqoh.value = formatRupiah(this.value, 'Rp. ');
+        var harga = document.getElementById('harga');
+        harga.addEventListener('keyup', function(e) {
+            harga.value = formatRupiah(this.value, 'Rp. ');
         });
 
         function formatRupiah(angka, prefix) {

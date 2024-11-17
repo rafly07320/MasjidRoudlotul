@@ -18,6 +18,7 @@
                     <tr>
                         <th class="border border-gray-400 text-white">No</th>
                         <th class="border border-gray-400 text-white">Nama</th>
+                        <th class="border border-gray-400 text-white">Email</th>
                         <th class="border border-gray-400 text-white">Tgl. Shodaqoh</th>
                         <th class="border border-gray-400 text-white">Nominal</th>
                         <th class="border border-gray-400 text-white">Bukti Transfer</th>
@@ -29,6 +30,7 @@
                         <tr>
                             <td class="border p-4 border-gray-400">{{ $loop->iteration }}</td>
                             <td class="border p-4 border-gray-400 font-bold">{{ $shodaqoh->nama_shodaqoh }}</td>
+                            <td class="border p-4 border-gray-400">{{ $shodaqoh->email_shodaqoh }}</td>
                             <td class="border p-4 border-gray-400">{{ $shodaqoh->tanggal_shodaqoh }}</td>
                             <td class="border p-4 border-gray-400">{{ formatRupiah($shodaqoh->nominal_shodaqoh) }}</td>
                             <td class="border p-4 border-gray-400">
