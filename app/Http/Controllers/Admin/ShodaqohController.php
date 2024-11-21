@@ -10,7 +10,7 @@ class ShodaqohController extends Controller
 {
     public function index()
     {
-        $shodaqohs = shodaqoh::all();
+        $shodaqohs = shodaqoh::orderBy('created_at', 'desc')->get();
         return view('admin.shodaqoh.index', compact('shodaqohs'));
     }
 
