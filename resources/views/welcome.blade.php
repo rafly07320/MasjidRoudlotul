@@ -18,12 +18,12 @@
 
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{ asset('images/depan masjid.jpg')}}"
+                <img src="{{ asset('images/depan masjid.jpg') }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{ asset('images/IMG_0017.jpg')}}"
+                <img src="{{ asset('images/IMG_0017.jpg') }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 3 -->
@@ -46,8 +46,8 @@
                 <img src="{{ asset('images/remas2.jpg') }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
-            
-            
+
+
         </div>
     </div>
 
@@ -133,13 +133,13 @@
     </div>
 
     <div class=" dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+        <div class=" px-4 mx-auto max-w-screen-xl lg:py-16">
             <div class="mb-10  flex align-items-center justify-center  w-full">
-                <div class="border-b-2 w-3/4 border-emerald-500">
+                <div class="border-b-2 w-1/2 border-emerald-500">
                     <h2 class="p-4 text-6xl font-black text-center text-gray-900 dark:text-white">Kegiatan</h2>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 mb-10">
+            <div class="grid md:grid-cols-2 gap-8 ">
                 @foreach ($kegiatans as $kegiatan)
                     <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
@@ -174,9 +174,9 @@
             </div>
 
         </div>
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:pb-16">
-            <div class="mb-10 flex align-items-center justify-center  w-full">
-                <div class="border-b-2 w-3/4 border-gray-500">
+        <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
+            <div class="mb-10 flex align-items-center justify-center w-full">
+                <div class="border-b-2 w-1/2 border-gray-500">
                     <h2 class="text-6xl font-black text-center text-gray-900 dark:text-white">Artikel</h2>
                 </div>
             </div>
@@ -196,10 +196,86 @@
                     </a>
                 @endforeach
             </div>
-
+        </div>
+        <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
+            <div class="mb-10 flex align-items-center justify-center w-full">
+                <div class="border-b-2 w-1/2 border-gray-500">
+                    <h2 class="text-6xl font-black text-center text-gray-900 dark:text-white">Jadwal Petugas Jumat</h2>
+                </div>
+            </div>
+            <div class="max-w-screen-md justify-center mx-auto">
+                @foreach ($petugas_jumats as $petugasJumat)
+                    <table id="selection-table" class="border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-50 dark:bg-gray-800">
+                                <th data-type="date" data-format="DD/MM/YYYY">
+                                    <span class="flex items-center">
+                                        Tanggal
+                                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="flex items-center">
+                                        Nama Imam
+                                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="flex items-center">
+                                        Khotib
+                                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="flex items-center">
+                                        Muadzin
+                                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="flex items-center">
+                                        ba'dal
+                                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                        </svg>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+                                <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ \Carbon\Carbon::parse($petugasJumat->tgl_petugas)->format('d-m-Y') }}
+                                </td>
+                                <td>{{ $petugasJumat->nama_imam }}</td>
+                                <td>{{ $petugasJumat->nama_khotib }}</td>
+                                <td>{{ $petugasJumat->nama_muadzin }}</td>
+                                <td>{{ $petugasJumat->nama_badal }}</td>
+                            </tr>
+                        </tbody>
+                @endforeach
+                </table>
+            </div>
         </div>
     </div>
-
 
     <script>
         const images = [

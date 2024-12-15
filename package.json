@@ -20,6 +20,7 @@
         "datatables.net": "^2.1.4",
         "datatables.net-dt": "^2.1.4",
         "flowbite": "^2.5.1",
+        "simple-datatables": "^9.2.1",
         "tailwindcss-patterns": "^0.1.2",
         "toastify-js": "^1.12.0"
     }

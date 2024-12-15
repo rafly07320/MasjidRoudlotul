@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ShodaqohFeedback;
 use App\Models\Artikel;
 use App\Models\kegiatan;
+use App\Models\petugas_jumat;
 use App\Models\shodaqoh;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -18,7 +19,8 @@ class HomeController extends Controller
     {
         $kegiatans = kegiatan::with('user')->latest()->take(2)->get();
         $artikels = Artikel::with('user')->latest()->take(2)->get();
-        return view('welcome', compact('kegiatans', 'artikels'));
+        $petugas_jumats = petugas_jumat::with('user')->get();
+        return view('welcome', compact('kegiatans', 'artikels', 'petugas_jumats'));
     }
 
     public function getArtikel(){

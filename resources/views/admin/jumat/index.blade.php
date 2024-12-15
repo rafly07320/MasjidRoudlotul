@@ -18,6 +18,7 @@
                     <tr>
                         <th class="border border-gray-400 text-white">No</th>
                         <th class="border border-gray-400 text-white">Admin</th>
+                        <th class="border border-gray-400 text-white">Tgl. Jumat</th>
                         <th class="border border-gray-400 text-white">Nama Imam</th>
                         <th class="border border-gray-400 text-white">Khotib</th>
                         <th class="border border-gray-400 text-white">Muadzin</th>
@@ -30,6 +31,9 @@
                         <tr>
                             <td class="border p-4 border-gray-400">{{ $loop->iteration }}</td>
                             <td class="border p-4 border-gray-400 font-bold">{{ $petugasJumat->user->name }}</td>
+                            <td class="border p-4 border-gray-400">
+                                {{ \Carbon\Carbon::parse($petugasJumat->tgl_petugas)->format('d-m-Y') }}
+                            </td>
                             <td class="border p-4 border-gray-400">{{ $petugasJumat->nama_imam }}</td>
                             <td class="border p-4 border-gray-400">{{ $petugasJumat->nama_khotib }}</td>
                             <td class="border p-4 border-gray-400">{{ $petugasJumat->nama_muadzin }}</td>
@@ -48,7 +52,6 @@
                                         type="button">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
-
                             </td>
                         </tr>
                     @endforeach
@@ -239,8 +242,8 @@
                         <div class="p-4 md:p-5">
                             <p class="text-sm text-gray-500 dark:text-gray-400">
                                 Apakah Anda yakin ingin menghapus petugas jumat dengan imam
-                            "<strong>{{ $petugasJumat->nama_imam }}</strong>"? Tindakan ini tidak dapat
-                            dibatalkan.
+                                "<strong>{{ $petugasJumat->nama_imam }}</strong>"? Tindakan ini tidak dapat
+                                dibatalkan.
                             </p>
                         </div>
                         <!-- Modal footer -->
