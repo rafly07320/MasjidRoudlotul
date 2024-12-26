@@ -15,7 +15,7 @@ class PetugasJumatController extends Controller
      */
     public function index()
     {
-        $jumat = petugas_jumat::with('user')->get();
+        $jumat = petugas_jumat::orderBy('created_at', 'desc')->get();
         return view('Admin/jumat/index', compact('jumat'));
 
     }

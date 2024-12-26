@@ -46,8 +46,8 @@ class KegiatanController extends Controller
         if ($request->hasFile('foto_kegiatan')) {
             $file = $request->file('foto_kegiatan');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/foto_kegiatans', $filename);
-            $data['foto_kegiatan'] = $filename;
+                $file->storeAs('public/foto_kegiatans', $filename);
+                $data['foto_kegiatan'] = $filename;
         }
 
         kegiatan::create($data);

@@ -12,7 +12,7 @@
                     Bermanfa'at.</p>
             </div>
         </div>
-        
+        <div class="py-8 px-4 mx-auto max-w-screen-xl ">
             <div class="grid md:grid-cols-2 gap-8 mb-10">
                 @foreach ($kegiatans as $kegiatan)
                     <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

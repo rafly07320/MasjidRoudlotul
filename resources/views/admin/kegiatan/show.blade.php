@@ -9,7 +9,7 @@
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                 {{ $kegiatan->judul_kegiatan }}
             </h1>
-            <p class="mb-8 text-lg font-normal text-gray-300">
+            <p class=" text-lg font-normal text-gray-300">
                 {{ \Carbon\Carbon::parse($kegiatan->tanggal_kegiatan)->format('d M Y') }} - 
                 {{ \Carbon\Carbon::parse($kegiatan->waktu_kegiatan)->format('H:i') }} WIB
             </p>
@@ -22,7 +22,7 @@
                     <img class="rounded-t-lg lg:h-96 h-auto" src="{{ Storage::url('foto_kegiatans/' . $kegiatan->foto_kegiatan) }}"
                         alt="">
                 </div>
-                <p class="my-8 text-md p-7">
+                <p class="">
                     {!! $kegiatan->deskripsi_kegiatan !!}
                 </p>
             </div>
@@ -84,7 +84,7 @@
                         class="block mb-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $other->judul_kegiatan }}</h5>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">{{ Str::limit($other->deskripsi_kegiatan, 100) }}.</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{!! Str::limit($other->deskripsi_kegiatan, 100) !!}.</p>
                     </a>
                 @endforeach
             </div>
