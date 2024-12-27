@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     //kas_masjid
     Route::get('/admin-kas-masjid', [KasMasjidController::class, 'index'])->name('kas.index');
     Route::post('/admin-kas-masjid', [KasMasjidController::class, 'store'])->name('kas.store');
+    Route::put('/admin-kas-masjid/{id}', [KasMasjidController::class, 'update'])->name('kas.update');
+    Route::delete('/admin-kas-masjid/{id}', [KasMasjidController::class, 'destroy'])->name('kas.destroy');
     //shodaqoh
     Route::get('/admin-shodaqoh', [ShodaqohController::class, 'index'])->name('shodaqoh.index');
     Route::post('/admin-shodaqoh', [ShodaqohController::class, 'store'])->name('shodaqoh.store');
