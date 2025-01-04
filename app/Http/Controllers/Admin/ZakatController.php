@@ -14,8 +14,10 @@ class ZakatController extends Controller
      */
     public function index()
     {
-        $zakats = Zakat::get();
-        return view('admin.zakat.index', compact('zakats'));
+        $zakats = Zakat::orderBy('created_at', 'desc')->get();
+        $total_zakat = Zakat::sum('total_zakat');
+        $total_jiwa = Zakat::sum('jumlah_jiwa');
+        return view('admin.zakat.index', compact('zakats','total_zakat','total_jiwa'));
     }
 
     /**

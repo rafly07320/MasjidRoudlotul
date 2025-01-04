@@ -18,6 +18,7 @@ Route::middleware('web')->group(function () {
     Route::get('/kegiatan', [HomeController::class, 'getKegiatan'])->name('home.kegiatan');
     Route::get('/shodaqoh', [HomeController::class, 'getShodaqoh'])->name('home.shodaqoh');
     Route::post('/shodaqoh', [HomeController::class, 'storeShodaqoh'])->name('home.shodaqoh.store');
+    Route::get('/kontak', [HomeController::class, 'getKontak'])->name('home.kontak');
 });
 
 

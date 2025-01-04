@@ -38,6 +38,10 @@ class HomeController extends Controller
         return view('shodaqoh');
     }
 
+    public function getKontak(){
+        return view('kontak');
+    }
+
     public function storeShodaqoh(Request $request)
     {
         try {

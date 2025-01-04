@@ -11,7 +11,8 @@ class ShodaqohController extends Controller
     public function index()
     {
         $shodaqohs = shodaqoh::orderBy('created_at', 'desc')->get();
-        return view('admin.shodaqoh.index', compact('shodaqohs'));
+        $total_shodaqohs = shodaqoh::sum('nominal_shodaqoh');
+        return view('admin.shodaqoh.index', compact('shodaqohs','total_shodaqohs'));
     }
 
     public function store(Request $request)

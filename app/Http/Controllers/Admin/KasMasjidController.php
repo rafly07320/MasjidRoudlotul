@@ -14,8 +14,9 @@ class KasMasjidController extends Controller
      */
     public function index()
     {
-        $kas_masjid = kas_masjid::with('user')->get();
-        return view('admin.kas_masjid.index', compact('kas_masjid'));
+        $kas_masjid = kas_masjid::with('user')->orderBy('created_at', 'desc')->get();;
+        $saldo_terakhir = kas_masjid::orderBy('tanggal_kas', 'desc')->value('saldo_akhir') ?? 0;
+        return view('admin.kas_masjid.index', compact('kas_masjid','saldo_terakhir'));
     }
 
     /**
