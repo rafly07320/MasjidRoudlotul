@@ -18,7 +18,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikels = Artikel::with('user')->get();
+        $artikels = Artikel::with('user')->orderBy('created_at', 'desc')->get();
         return view('admin.artikel.index', compact('artikels'));
     }
 
@@ -65,7 +65,7 @@ class ArtikelController extends Controller
         $artikel = Artikel::where('judul_artikel', $formattedTitle)->firstOrFail();
         $title = $artikel->judul_artikel;
         $otherArtikels = Artikel::where('id', '!=', $artikel->id)->latest()->take(5)->get();
-        return view('admin.artikel.show', compact('artikel','title','otherArtikels'));
+        return view('admin.artikel.show', compact('artikel', 'title', 'otherArtikels'));
     }
 
     /**
