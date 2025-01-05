@@ -10,9 +10,7 @@
             <div class="text-center">
                 <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                     Masjid Roudlotul Ulum</h1>
-                <p class="text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:mx-56">Here at Flowbite we focus
-                    on markets where technology, innovation, and capital can unlock long-term value and drive economic
-                    growth.</p>
+                <p class="text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:mx-56">Jl Dupak Baru III No. 43 Surabaya</p>
             </div>
         </div>
 
