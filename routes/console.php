@@ -19,5 +19,5 @@ Schedule::call(function () {
     foreach ($emails as $email) {
         Mail::to($email)->send(new \App\Mail\PostCountMail());
     }
-})->dailyAt('13:30'); //setiap hari sekali
+})->dailyAt('17:25'); //setiap hari sekali
 // ->monthlyOn(15,'19:47'); // setiap 1 bulan sekali dgn tgl tertentu
