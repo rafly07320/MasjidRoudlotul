@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KasMasjidController;
 use App\Http\Controllers\Admin\KegiatanController;
 use App\Http\Controllers\Admin\PetugasJumatController;
@@ -23,9 +24,7 @@ Route::middleware('web')->group(function () {
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin-dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

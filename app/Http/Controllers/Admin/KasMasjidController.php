@@ -15,8 +15,8 @@ class KasMasjidController extends Controller
     public function index()
     {
         $kas_masjid = kas_masjid::with('user')->orderBy('created_at', 'desc')->get();;
-        $saldo_terakhir = kas_masjid::orderBy('tanggal_kas', 'desc')->value('saldo_akhir') ?? 0;
-        return view('admin.kas_masjid.index', compact('kas_masjid','saldo_terakhir'));
+        $saldo_terakhir = kas_masjid::orderBy('created_at', 'desc')->value('saldo_akhir') ?? 0;
+        return view('admin.kas_masjid.index', compact('kas_masjid', 'saldo_terakhir'));
     }
 
     /**
@@ -56,7 +56,7 @@ class KasMasjidController extends Controller
             $data['id_user'] = $userId;
 
             // Ambil saldo akhir terakhir dari database
-            $lastKasMasjid = kas_masjid::where('id_user', $userId)->orderBy('tanggal_kas', 'desc')->first();
+            $lastKasMasjid = kas_masjid::where('id_user', $userId)->orderBy('created_at', 'desc')->first();
             $currentSaldo = $lastKasMasjid ? $lastKasMasjid->saldo_akhir : 0;
 
             // Hitung saldo akhir baru
@@ -113,41 +113,47 @@ class KasMasjidController extends Controller
                 'tanggal_kas' => 'required|date',
                 'jenis_kas' => 'required|in:masuk,keluar', // Validasi enum
                 'jumlah_kas' => 'required|numeric|min:1|max:9999999999',
-                'deskripsi_kas' => 'nullable|string|max:65535', // Maksimal panjang untuk text
+                'deskripsi_kas' => 'nullable|string|max:65535',
             ]);
 
-            // Cari data kas berdasarkan ID
+            // Cari data kas yang akan diupdate
             $kasMasjid = kas_masjid::findOrFail($id);
 
-            // Ambil saldo akhir terakhir dari database, kecuali data yang sedang diubah
-            $lastKasMasjid = kas_masjid::where('id_user', $userId)
-                ->where('id', '!=', $id)
-                ->orderBy('tanggal_kas', 'desc')
-                ->first();
-
-            $currentSaldo = $lastKasMasjid ? $lastKasMasjid->saldo_akhir : 0;
-
-            // Hitung saldo akhir baru berdasarkan perubahan data
-            $newSaldo = $request->jenis_kas === 'masuk'
-                ? $currentSaldo + $request->jumlah_kas
-                : $currentSaldo - $request->jumlah_kas;
-
-            // Update data kas masjid
+            // Update data yang diubah
             $kasMasjid->update([
                 'tanggal_kas' => $request->tanggal_kas,
                 'jenis_kas' => $request->jenis_kas,
                 'jumlah_kas' => $request->jumlah_kas,
                 'deskripsi_kas' => $request->deskripsi_kas,
-                'saldo_akhir' => $newSaldo,
             ]);
 
+            // Ambil semua data kas masjid terkait user
+            $allKasMasjid = kas_masjid::where('id_user', $userId)
+                ->orderBy('tanggal_kas', 'asc') // Urutkan berdasarkan tanggal
+                ->get();
+
+            // Hitung ulang saldo akhir untuk setiap entri
+            $currentSaldo = 0;
+            foreach ($allKasMasjid as $kas) {
+                if ($kas->jenis_kas === 'masuk') {
+                    $currentSaldo += $kas->jumlah_kas;
+                } else {
+                    $currentSaldo -= $kas->jumlah_kas;
+                }
+
+                // Update saldo_akhir
+                $kas->update(['saldo_akhir' => $currentSaldo]);
+            }
+
             // Redirect jika berhasil
-            return redirect()->route('kas.index')->with('success', 'Data kas berhasil diubah.');
+            return redirect()->route('kas.index')->with('success', 'Data kas berhasil diubah dan saldo diperbarui.');
         } catch (\Exception $e) {
             // Tangkap error
-            return redirect()->back()->with('error ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
+
 
     /**
      * Remove the specified resource from storage.
