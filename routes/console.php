@@ -10,14 +10,12 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-// Schedule::call(function () {
-//     Mail::to('ridhoikhsandria348@gmail.com')->send(new \App\Mail\TaskSchedulerMail([]));
-// })->everyMinute();
+
 
 Schedule::call(function () {
     $emails = DB::table('shodaqohs')->pluck('email_shodaqoh');
     foreach ($emails as $email) {
         Mail::to($email)->send(new \App\Mail\PostCountMail());
     }
-})->dailyAt('17:25'); //setiap hari sekali
+})->dailyAt('18:40'); //setiap hari sekali
 // ->monthlyOn(15,'19:47'); // setiap 1 bulan sekali dgn tgl tertentu
