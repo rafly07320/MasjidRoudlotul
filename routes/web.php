@@ -11,7 +11,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\SitemapGenerator;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21b81d0abb4449cf2be2d27779a40be4d67c9a4e
 
 use function Pest\Laravel\post;
 
@@ -23,6 +26,13 @@ Route::middleware('web')->group(function () {
     Route::post('/shodaqoh', [HomeController::class, 'storeShodaqoh'])->name('home.shodaqoh.store');
     Route::get('/kontak', [HomeController::class, 'getKontak'])->name('home.kontak');
 });
+
+Route::get('/generate-sitemap', function () {
+    SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
+    return 'Sitemap berhasil dibuat!';
+});
+
+
 
 Route::get('/generate-sitemap', function () {
     SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
