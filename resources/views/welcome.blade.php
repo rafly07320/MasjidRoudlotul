@@ -8,8 +8,13 @@
         <!-- Content overlay -->
         <div class="absolute inset-0 flex items-center justify-center text-white z-40 bg-black/60">
             <div class="text-center">
+<<<<<<< HEAD
                 <h1 class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                     Masjid Roudlotul Ulum</h1>
+=======
+                <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                    Masjid Roudlotul Ulum Surabaya</h1>
+>>>>>>> 21b81d0 (update server)
                 <p class="text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:mx-56">Jl Dupak Baru III No. 43 Surabaya</p>
             </div>
         </div>
@@ -117,8 +122,10 @@
             <h2 class="text-2xl font-black text-gray-900 mb-5 text-center md:text-start">
                 MASJID ROUDLOTUL ULUM SURABAYA
             </h2>
-            <p class="border-2 font-poppins text-justify md:mx-0 px-5 mb-10 md:mb-0">
-                Pada awalnya, sebelum berdirinya Masjid Roudlotul Ulum, terdapat sebuah mushola kecil di wilayah Kampung
+
+            <p class="font-poppins text-justify me-10">
+                Pada awalnya, sebelum berdirinya Masjid Roudlotul Ulum Surabaya, terdapat sebuah mushola kecil di wilayah Kampung
+
                 Dupak Baru. Kemudian, dilakukan pembangunan yang menghasilkan sebuah masjid kecil bernama Masjid Al
                 Ibrahim. Lalu pada tahun 2000, masjid ini mengalami pembangunan kembali, sehingga menjadi masjid besar
                 yang kemudian berganti nama menjadi Masjid Roudlotul Ulum. Pada tahun 1996, didirikan sebuah sekolah

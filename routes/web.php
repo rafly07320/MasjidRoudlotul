@@ -11,10 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\SitemapGenerator;
-<<<<<<< HEAD
 
-=======
->>>>>>> 21b81d0abb4449cf2be2d27779a40be4d67c9a4e
 
 use function Pest\Laravel\post;
 
