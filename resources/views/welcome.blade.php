@@ -104,7 +104,7 @@
     </div>
 </div>
 <div class="my-8">
-    <h2 class="p-4 font-poppins underline text-6xl font-black text-center text-gray-900 dark:text-white">Sejarah Masjid
+    <h2 class="p-4 font-poppins underline md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Sejarah Masjid
     </h2>
 </div>
 <div class="bg-brush mt-10 shadow-inner-lg md:w-3/4 mx-auto rounded-xl">
