@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="_Q658p-9VFTyttgPwKzdF0CCYDSidExMWLDnnq-_buo" />
     <link rel="icon" href="{{ asset('images/logo.jpg') }}">
     <title>@yield('title', config('app.name', 'Laravel'))</title>
     <!-- Fonts -->

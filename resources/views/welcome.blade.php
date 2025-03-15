@@ -94,7 +94,7 @@
                     <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
                         Pusat Kegiatan Islami</h5>
                     <p class="mb-3 font-normal text-center text-gray-700 dark:text-gray-400">Sebagai landasan
-                        bagi Masjid Mujahidin Surabaya, yayasan ini menjadi pusat kegiatan Islami yang
+                        bagi Masjid Roudlotul Ulum Surabaya, yayasan ini menjadi pusat kegiatan Islami yang
                         menyelenggarakan berbagai kegiatan keagamaan seperti kajian, pengajian, dan pelatihan
                         keIslaman.
                     </p>
