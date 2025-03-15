@@ -31,6 +31,13 @@ Route::get('/generate-sitemap', function () {
 
 
 
+Route::get('/generate-sitemap', function () {
+    SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
+    return 'Sitemap berhasil dibuat!';
+});
+
+
+
 Route::get('/admin-dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
