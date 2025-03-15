@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title', 'Beranda')
+@section('title', 'Masjid Roudlotul Ulum Surabaya')
 
 @section('content')
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -8,7 +8,7 @@
         <!-- Content overlay -->
         <div class="absolute inset-0 flex items-center justify-center text-white z-40 bg-black/60">
             <div class="text-center">
-                <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                <h1 class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                     Masjid Roudlotul Ulum</h1>
                 <p class="text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:mx-56">Jl Dupak Baru III No. 43 Surabaya</p>
             </div>
@@ -94,7 +94,7 @@
                     <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
                         Pusat Kegiatan Islami</h5>
                     <p class="mb-3 font-normal text-center text-gray-700 dark:text-gray-400">Sebagai landasan
-                        bagi Masjid Mujahidin Surabaya, yayasan ini menjadi pusat kegiatan Islami yang
+                        bagi Masjid Roudlotul Ulum Surabaya, yayasan ini menjadi pusat kegiatan Islami yang
                         menyelenggarakan berbagai kegiatan keagamaan seperti kajian, pengajian, dan pelatihan
                         keIslaman.
                     </p>
@@ -109,15 +109,15 @@
 </div>
 <div class="bg-brush mt-10 shadow-inner-lg md:w-3/4 mx-auto rounded-xl">
     <div class="flex flex-col md:flex-row  mx-auto md:max-w-screen-xl h-auto">
-        <div class="md:w-1/2 w-full  flex justify-center items-center my-20">
+        <div class="md:w-1/2 w-full  flex justify-center items-center md:my-20 mt-20 mb-10">
             <div class="bg-masjid bg-cover bg-center border-4 border-amber-800 h-96 w-60 rounded-xl shadow-outer-lg">
             </div>
         </div>
-        <div class="md:w-1/2 w-full h-96 my-20 py-5">
-            <h2 class="text-2xl font-black text-gray-900 mb-5">
-                MASJID ROUDLOTUL ULUM
+        <div class="md:w-1/2 w-full h-96 my-20 py-5 border-2 justify-center align-items-center flex flex-col">
+            <h2 class="text-2xl font-black text-gray-900 mb-5 text-center md:text-start">
+                MASJID ROUDLOTUL ULUM SURABAYA
             </h2>
-            <p class="font-poppins text-justify me-10">
+            <p class="border-2 font-poppins text-justify md:mx-0 px-5 mb-10 md:mb-0">
                 Pada awalnya, sebelum berdirinya Masjid Roudlotul Ulum, terdapat sebuah mushola kecil di wilayah Kampung
                 Dupak Baru. Kemudian, dilakukan pembangunan yang menghasilkan sebuah masjid kecil bernama Masjid Al
                 Ibrahim. Lalu pada tahun 2000, masjid ini mengalami pembangunan kembali, sehingga menjadi masjid besar
@@ -134,7 +134,7 @@
     <div class=" px-4 mx-auto max-w-screen-xl lg:py-16">
         <div class="mb-10  flex align-items-center justify-center  w-full">
             <div class="border-b-2 w-1/2 border-emerald-500">
-                <h2 class="p-4 text-6xl font-black text-center text-gray-900 dark:text-white">Kegiatan</h2>
+                <h2 class="p-4 md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Kegiatan</h2>
             </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 ">
@@ -175,7 +175,7 @@
     <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
         <div class="mb-10 flex align-items-center justify-center w-full">
             <div class="border-b-2 w-1/2 border-gray-500">
-                <h2 class="text-6xl font-black text-center text-gray-900 dark:text-white">Artikel</h2>
+                <h2 class="md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Artikel</h2>
             </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 justify-center">
@@ -199,7 +199,7 @@
     <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
         <div class="mb-10 flex align-items-center justify-center w-full">
             <div class="border-b-2 w-1/2 border-gray-500">
-                <h2 class="text-6xl font-black text-center text-gray-900 dark:text-white">Jadwal Petugas Jumat</h2>
+                <h2 class="md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Jadwal Petugas Jumat</h2>
             </div>
         </div>
         <div class="max-w-screen-md justify-center mx-auto">
