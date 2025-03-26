@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('zakats', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_zakat');
-            $table->string('kepala_keluarga');
+            $table->string('nama');
             $table->text('alamat');
-            $table->integer('jumlah_jiwa');
-            $table->string('total_zakat');
+            $table->string('jenis_zakat')->default('bawa_sendiri');
+            $table->decimal('harga_per_zakat', 10, 2)->nullable();
+            $table->decimal('harga_total', 10, 2)->nullable();
+            $table->string('jumlah_zakat');
             $table->timestamps();
         });
     }

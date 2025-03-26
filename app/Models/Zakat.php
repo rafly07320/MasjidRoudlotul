@@ -11,9 +11,10 @@ class Zakat extends Model
 
     protected $fillable = [
         'tgl_zakat',
-        'kepala_keluarga',
+        'nama',
+        'harga_per_zakat',
+        'harga_total',
         'alamat',
-        'jumlah_jiwa',
-        'total_zakat',
+        'jumlah_zakat',
     ]; 
 }

@@ -19,12 +19,12 @@ class DashboardController extends Controller
     {
         $saldo_terakhir = kas_masjid::orderBy('created_at', 'desc')->value('saldo_akhir') ?? 0;
         $total_shodaqohs = shodaqoh::sum('nominal_shodaqoh');
-        $total_zakat = Zakat::sum('total_zakat');
-        $total_jiwa = Zakat::sum('jumlah_jiwa');
+        // $total_zakat = Zakat::sum('total_zakat');
+        // $total_jiwa = Zakat::sum('jumlah_jiwa');
         $artikels = Artikel::with('user')->orderBy('created_at', 'desc')->take(5)->get();
         $kegiatans = kegiatan::with('user')->orderBy('created_at', 'desc')->take(5)->get();
 
-        return view('dashboard', compact('saldo_terakhir', 'total_shodaqohs', 'total_zakat', 'total_jiwa', 'artikels', 'kegiatans'));
+        return view('dashboard', compact('saldo_terakhir', 'total_shodaqohs',  'artikels', 'kegiatans'));
 
 
 

@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin-shodaqoh', [ShodaqohController::class, 'store'])->name('shodaqoh.store');
     //zakat
     Route::get('/admin-zakat', [ZakatController::class, 'index'])->name('zakat.index');
+    Route::get('/admin/tambah-zakat', [ZakatController::class, 'create'])->name('zakat.create');
     Route::post('/admin-zakat', [ZakatController::class, 'store'])->name('zakat.store');
     Route::put('/admin-zakat/{id}', [ZakatController::class, 'update'])->name('zakat.update');
     Route::delete('/admin-zakat/{id}', [ZakatController::class, 'destroy'])->name('zakat.destroy');

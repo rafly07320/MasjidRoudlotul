@@ -15,9 +15,9 @@ class ZakatController extends Controller
     public function index()
     {
         $zakats = Zakat::orderBy('created_at', 'desc')->get();
-        $total_zakat = Zakat::sum('total_zakat');
-        $total_jiwa = Zakat::sum('jumlah_jiwa');
-        return view('admin.zakat.index', compact('zakats','total_zakat','total_jiwa'));
+        // $total_zakat = Zakat::sum('total_zakat');
+        // $total_jiwa = Zakat::sum('jumlah_jiwa');
+        return view('admin.zakat.index', compact('zakats',));
     }
 
     /**
@@ -25,7 +25,7 @@ class ZakatController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.zakat.tambah');
     }
 
     /**
@@ -35,16 +35,36 @@ class ZakatController extends Controller
     {
         try {
             $request->validate([
-                'tgl_zakat' => 'required|date',
-                'kepala_keluarga' => 'required|string|max:255',
-                'alamat' => 'required|string|max:255',
-                'jumlah_jiwa' => 'required|integer',
-                'total_zakat' => 'required|numeric',
+                'total_zakat' => 'required|numeric|min:1',
+                'harga_per_zakat' => 'nullable|numeric|min:0',
+                'harga_total' => 'nullable|numeric|min:0',
+                'jenis_zakat' => 'required|in:bawa_sendiri,beli_dari_masjid',
+                'nama' => 'required|array|min:1',
+                'nama.*' => 'required|string',
+                'alamat' => 'required|array|min:1',
+                'alamat.*' => 'required|string',
             ]);
 
+            $totalZakat = $request->total_zakat;
+            $jumlahMuzakki = count($request->nama);
+            $zakatPerOrang = $totalZakat / max($jumlahMuzakki, 1);
 
-            Zakat::create($request->all());
-            return redirect()->back()->with('success', 'Data zakat berhasil disimpan.');
+            // Jika beli dari masjid, hitung total harga
+            $hargaPerZakat = $request->jenis_zakat === 'beli_dari_masjid' ? 50000 : null;
+            $hargaTotal = $hargaPerZakat ? $jumlahMuzakki * $hargaPerZakat : null;
+            foreach ($request->nama as $index => $nama) {
+                Zakat::create([
+                    'tgl_zakat' => now(),
+                    'nama' => $nama,
+                    'alamat' => $request->alamat[$index] ?? 'Alamat tidak diketahui',
+                    'jumlah_zakat' => $zakatPerOrang,
+                    'jenis_zakat' => $request->jenis_zakat,
+                    'harga_per_zakat' => $hargaPerZakat,
+                    'harga_total' => $hargaTotal,
+                ]);
+            }
+
+            return redirect()->route('zakat.index')->with('success', 'Data zakat berhasil disimpan.');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Terjadi: ' . $e->getMessage());
         }
