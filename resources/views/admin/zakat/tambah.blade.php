@@ -108,8 +108,8 @@
             let container = document.getElementById("namaContainer");
             let div = document.createElement("div");
             div.classList.add("nama-item", "mb-2");
-            div.innerHTML = `
-                <div class="grid grid-cols-2 gap-4">
+            div.innerHTML =
+                `<div class="grid grid-cols-2 gap-4">
                     <div>
                         <input type="text" name="nama[]" placeholder="Nama" class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
                     </div>
@@ -117,8 +117,7 @@
                         <input type="text" name="alamat[]" placeholder="Alamat" class="mt-1 p-2.5 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
                     </div>
                 </div>
-                <button type="button" class="mt-1 text-red-600 hover:underline" onclick="hapusNama(this)">Hapus</button>
-            `;
+                <button type="button" class="mt-1 text-red-600 hover:underline" onclick="hapusNama(this)">Hapus</button>`;
             container.appendChild(div);
             hitungZakat();
         }
@@ -128,8 +127,6 @@
             hitungZakat();
         }
 
-
-
         function toggleHarga() {
             let jenis = document.getElementById("jenis_zakat").value;
             let hargaField = document.getElementById("harga_field");
@@ -137,25 +134,36 @@
             if (jenis === "beli_dari_masjid") {
                 hargaField.style.display = "block";
                 document.getElementById("zakat_per_orang").value = 2.8; // Default 2.8 kg per orang
+                document.getElementById("total_zakat").value = document.querySelectorAll(".nama-item").length * 2.8;
                 hitungTotalHarga();
             } else {
                 hargaField.style.display = "none";
+                document.getElementById("zakat_per_orang").value = 0;
+                document.getElementById("total_zakat").value = "";
             }
         }
 
         function hitungZakat() {
-            let totalZakat = parseFloat(document.getElementById("total_zakat").value) || 0;
             let jumlahOrang = document.querySelectorAll(".nama-item").length;
             document.getElementById("jumlah_orang").value = jumlahOrang;
 
-            if (jumlahOrang > 0) {
-                document.getElementById("zakat_per_orang").value = 2.8;
-            } else {
-                document.getElementById("zakat_per_orang").value = 0;
-            }
+            let jenis = document.getElementById("jenis_zakat").value;
 
-            if (document.getElementById("jenis_zakat").value === "beli_dari_masjid") {
+            if (jenis === "beli_dari_masjid") {
+                // For buying from mosque, use fixed 2.8 kg per person
+                let totalZakat = jumlahOrang * 2.8;
+                document.getElementById("total_zakat").value = totalZakat.toFixed(2);
+                document.getElementById("zakat_per_orang").value = 2.8;
                 hitungTotalHarga();
+            } else {
+                // For bringing own zakat, calculate based on total zakat input
+                let totalZakat = parseFloat(document.getElementById("total_zakat").value) || 0;
+
+                if (jumlahOrang > 0) {
+                    document.getElementById("zakat_per_orang").value = (totalZakat / jumlahOrang).toFixed(2);
+                } else {
+                    document.getElementById("zakat_per_orang").value = 0;
+                }
             }
         }
 
@@ -163,7 +171,6 @@
             let jumlahOrang = document.querySelectorAll(".nama-item").length;
             let hargaPerZakat = parseFloat(document.getElementById("harga_per_zakat").value) || 0;
 
-            document.getElementById("total_zakat").value = jumlahOrang * 2.8; // Default 2.8 kg
             document.getElementById("harga_total").value = jumlahOrang * hargaPerZakat;
         }
     </script>
