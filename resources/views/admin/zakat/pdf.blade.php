@@ -50,7 +50,7 @@
                     <td>{{ \Carbon\Carbon::parse($zakat->tgl_zakat)->format('d-m-Y') }}</td>
                     <td>{{ $zakat->nama }}</td>
                     <td>{{ $zakat->alamat }}</td>
-                    <td>{{ $zakat->jumlah_zakat }} kg</td>
+                    <td>{{ number_format($zakat->jumlah_zakat, 2) }} kg</td>
                     <td>{{ $zakat->jenis_zakat }}</td>
                     <td>{{ formatRupiah($zakat->harga_per_zakat) }}</td>
                 </tr>

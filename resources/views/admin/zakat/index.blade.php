@@ -74,7 +74,7 @@
                             <td class="border p-4 border-gray-400 font-bold">{{ $zakat->tgl_zakat }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->nama }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->alamat }}</td>
-                            <td class="border p-4 border-gray-400">{{ $zakat->harga_per_zakat }}</td>
+                            <td class="border p-4 border-gray-400">{{ $zakat->harga_per_zakat,2 }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->jumlah_zakat }} Kg</td>
                             <td class="border p-4 border-gray-400">
                                 <div class="flex justify-center">
