@@ -47,7 +47,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ \Carbon\Carbon::parse($zakat->tgl_zakat)->format('d-m-Y') }}</td>
-                    <td>{{ $zakat->nama }}</td>
+                    <td style="text-transform: uppercase">{{ $zakat->nama }}</td>
                     <td>{{ $zakat->alamat }}</td>
                     <td>{{ number_format($zakat->jumlah_zakat, 2) }} kg</td>
                     <td>{{ formatRupiah($zakat->harga_per_zakat) }}</td>
