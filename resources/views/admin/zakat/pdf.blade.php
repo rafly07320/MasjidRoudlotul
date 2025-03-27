@@ -39,7 +39,6 @@
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>Jumlah Zakat</th>
-                <th>Jenis Zakat</th>
                 <th>Uang</th>
             </tr>
         </thead>
@@ -51,11 +50,26 @@
                     <td>{{ $zakat->nama }}</td>
                     <td>{{ $zakat->alamat }}</td>
                     <td>{{ number_format($zakat->jumlah_zakat, 2) }} kg</td>
-                    <td>{{ $zakat->jenis_zakat }}</td>
                     <td>{{ formatRupiah($zakat->harga_per_zakat) }}</td>
                 </tr>
             @endforeach
         </tbody>
+    </table>
+    <h2>REKAPITULASI</h2>
+    <table>
+        <tr>
+            <th>Jumlah Jiwa</th>
+            <th>{{ $total_jiwa }}</th>
+        </tr>
+        <tr>
+            <th>Total Zakat (Kg)</th>
+            <th>{{ $total_jumlah_zakat }} kg</th>
+        </tr>
+
+        <tr>
+            <th>Jumlah Uang</th>
+            <th>{{ formatRupiah($total_uang) }}</th>
+        </tr>
     </table>
 </body>
 

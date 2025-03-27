@@ -96,8 +96,11 @@ class ZakatController extends Controller
     public function exportPdf()
     {
         $zakats = Zakat::all();
+        $total_jumlah_zakat = Zakat::sum('jumlah_zakat');
+        $total_jiwa = Zakat::get()->count();
+        $total_uang = Zakat::sum('harga_per_zakat');
 
-        $pdf = PDF::loadView('admin.zakat.pdf', compact('zakats'))
+        $pdf = PDF::loadView('admin.zakat.pdf', compact('zakats','total_jumlah_zakat','total_jiwa','total_uang'))
         ->setPaper('F4', 'potrait');
 
         return $pdf->stream('laporan_zakat.pdf');
