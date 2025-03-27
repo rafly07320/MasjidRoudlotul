@@ -212,50 +212,44 @@
         </div>
     </div>
 
-    <div class=" dark:bg-gray-900">
-        <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
+    <div class=" dark:bg-gray-900 mt-10">
+        <div class=" px-4 mx-auto max-w-screen-lg lg:pb-16">
             <div class="mb-10 flex align-items-center justify-center w-full">
                 <div class="border-b-2 w-1/2 border-gray-500">
-                    <h2 class="md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Jadwal Petugas
-                        Jumat</h2>
+                    <h2 class="md:text-5xl text-2xl font-black text-center text-gray-900 dark:text-white">Perolehan Zakat
+                        2025</h2>
                 </div>
             </div>
-            <div class="max-w-screen-md justify-center mx-auto">
-                <table id="selection-table" class="border-gray-300">
-                    <thead>
-                        <tr class="bg-gray-50 dark:bg-gray-800">
-                            <th data-type="date" data-format="DD/MM/YYYY">
-                                <span class="flex items-center">
-                                    Total Jiwa
-                                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                    </svg>
-                                </span>
-                            </th>
-                            <th>
-                                <span class="flex items-center">
-                                    Total Beras (kg)
-                                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                    </svg>
-                                </span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
-                                <td>{{ $total_jiwa }}</td>
-                                <td>{{ $total_jumlah_zakat }} kg</td>
-                            </tr>
-                    </tbody>
-                </table>
+            <div
+                class=" p-6 bg-gray-100 border border-gray-200 rounded-lg shadow-sm shadow-black dark:bg-gray-800 dark:border-gray-700">
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class=" p-6 bg-white border border-gray-200 rounded-lg shadow-sm shadow-black dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="md:text-3xl text-2xl font-medium text-center text-gray-900 dark:text-white">
+                                Jumlah Jiwa
+                            </h2>
+                            <h2 class="md:text-3xl text-2xl font-medium text-center text-green-500 dark:text-white">
+                                {{ $total_jiwa }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div
+                        class=" p-6 bg-white border border-gray-200 rounded-lg shadow-sm shadow-black dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="md:text-3xl text-2xl font-medium text-center text-gray-900 dark:text-white">
+                                Total Zakat (kg)
+                            </h2>
+                            <h2 class="md:text-3xl text-2xl font-medium text-center text-green-500 dark:text-white">
+                                {{ $total_jumlah_zakat }} kg
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                </a>
             </div>
         </div>
-        <div class=" px-4 mx-auto max-w-screen-xl lg:py-16">
+        {{-- <div class=" px-4 mx-auto max-w-screen-xl lg:py-16">
             <div class="mb-10  flex align-items-center justify-center  w-full">
                 <div class="border-b-2 w-1/2 border-emerald-500">
                     <h2 class="p-4 md:text-6xl text-2xl font-black text-center text-gray-900 dark:text-white">Kegiatan</h2>
@@ -318,7 +312,7 @@
                     </a>
                 @endforeach
             </div>
-        </div>
+        </div> --}}
         <div class=" px-4 mx-auto max-w-screen-xl lg:pb-16">
             <div class="mb-10 flex align-items-center justify-center w-full">
                 <div class="border-b-2 w-1/2 border-gray-500">
