@@ -73,6 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin-zakat', [ZakatController::class, 'store'])->name('zakat.store');
     Route::put('/admin-zakat/{id}', [ZakatController::class, 'update'])->name('zakat.update');
     Route::delete('/admin-zakat/{id}', [ZakatController::class, 'destroy'])->name('zakat.destroy');
+    Route::get('/admin-zakat/download', [ZakatController::class, 'exportPdf'])->name('zakat.download');
 });
 
 //artikel

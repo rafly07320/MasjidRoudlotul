@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Zakat;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
+
 
 class ZakatController extends Controller
 {
@@ -89,6 +91,16 @@ class ZakatController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Terjadi: ' . $e->getMessage()]);
         }
+    }
+
+    public function exportPdf()
+    {
+        $zakats = Zakat::all();
+
+        $pdf = PDF::loadView('admin.zakat.pdf', compact('zakats'))
+        ->setPaper('F4', 'potrait');
+
+        return $pdf->stream('laporan_zakat.pdf');
     }
 
     /**
