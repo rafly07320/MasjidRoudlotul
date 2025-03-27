@@ -7,6 +7,7 @@ use App\Models\Artikel;
 use App\Models\kegiatan;
 use App\Models\petugas_jumat;
 use App\Models\shodaqoh;
+use App\Models\Zakat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -20,7 +21,9 @@ class HomeController extends Controller
         $kegiatans = kegiatan::with('user')->latest()->take(2)->get();
         $artikels = Artikel::with('user')->latest()->take(2)->get();
         $petugas_jumats = petugas_jumat::with('user')->get();
-        return view('welcome', compact('kegiatans', 'artikels', 'petugas_jumats'));
+        $total_jumlah_zakat = Zakat::sum('jumlah_zakat');
+        $total_jiwa = Zakat::get()->count();
+        return view('welcome', compact('kegiatans', 'artikels', 'petugas_jumats','total_jumlah_zakat','total_jiwa'));
     }
 
     public function getArtikel(){
