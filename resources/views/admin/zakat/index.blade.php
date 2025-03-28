@@ -6,13 +6,13 @@
         <h2 class="mb-0 text-uppercase text-4xl">ZAKAT</h2>
         {{-- <h2 class="mb-0 text-uppercase text-2xl font-bold">Total = {{ $total_zakat }} Kg</h2>
         <h2 class="mb-0 text-uppercase text-2xl font-bold">jumlah jiwa = {{ $total_jiwa }}</h2> --}}
+        <a href="{{ route('zakat.download') }}"
+            class="me-2 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <i class="fa-solid fa-download mr-2"></i>            Download Laporan
+        </a>
         <a href="{{ route('zakat.create') }}"
             class="me-2 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             + Tambah Data
-        </a>
-        <a href="{{ route('zakat.download') }}"
-            class="me-2 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Download
         </a>
     </div>
     <hr />
@@ -50,7 +50,7 @@
                 </h2>
             </div>
         </div>
-        
+
     </div>
     <div
         class="mt-3 max-w-full p-7 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -74,7 +74,7 @@
                             <td class="border p-4 border-gray-400 font-bold">{{ $zakat->tgl_zakat }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->nama }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->alamat }}</td>
-                            <td class="border p-4 border-gray-400">{{ $zakat->harga_per_zakat,2 }}</td>
+                            <td class="border p-4 border-gray-400">{{ $zakat->harga_per_zakat, 2 }}</td>
                             <td class="border p-4 border-gray-400">{{ $zakat->jumlah_zakat }} Kg</td>
                             <td class="border p-4 border-gray-400">
                                 <div class="flex justify-center">
