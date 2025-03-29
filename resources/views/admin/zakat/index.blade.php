@@ -84,12 +84,12 @@
                                         type="button">
                                         <i class="fa-solid fa-pen"></i>
                                     </button>
-                                    {{-- <button data-modal-target="delete-modal-{{ $zakat->id }}"
+                                    <button data-modal-target="delete-modal-{{ $zakat->id }}"
                                         data-modal-toggle="delete-modal-{{ $zakat->id }}"
                                         class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                         type="button">
                                         <i class="fa-solid fa-trash"></i>
-                                    </button> --}}
+                                    </button>
                             </td>
                         </tr>
                     @endforeach
